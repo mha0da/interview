@@ -102,7 +102,7 @@ async def websocket_endpoint(websocket: WebSocket, room: str, username: str):
                 message = Message(**data)
                 await manager.broadcast(message)
             except WebSocketDisconnect:
-                await manager.disconnect(username, room, 999)
+                await manager.disconnect(username, room, 1006)
 
 
 @app.get(
