@@ -83,3 +83,6 @@ def solve_sudoku(matrix):
                     return False
 
         return True
+    
+
+    solve(0, 0)
