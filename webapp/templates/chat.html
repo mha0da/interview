@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',path='../static/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <form action="" onsubmit="login(event)" id="login">
+      User: <input class="msger" type="text" id="usernameInput" /> <br />
+      Room:
+      <select class="msger" id="roomInput">
+        <option>Room1</option>
+        <option>Room2</option>
+        <option>Room3</option>
+        <option>Room4</option>
+      </select>
+      <button type="submit" class="msger-send-btn">Login</button>
+    </form>
+    <section class="msger" id="msger">
+      <header class="msger-header">
+        <div class="msger-header-title">
+          <i class="fas fa-comment-alt" id="room">{{room}}</i>
+          <i class="fas fa-comment-alt" id="username">{{username}}</i>
+        </div>
+        <div class="msger-header-options">
+          <span><i class="fas fa-cog"></i></span>
+        </div>
+      </header>
+
+      <main class="msger-chat" id="msger-chat"></main>
+
+      <form class="msger-inputarea" action="" onsubmit="sendMessage(event)">
+        <input type="text" class="msger-input" id="msger-input" />
+        <button type="submit" class="msger-send-btn">Send</button>
+        <button type="button" class="msger-quit-btn" onclick="quitRoom()">
+          Quit
+        </button>
+      </form>
+    </section>
+
+    <div>
+      <p id="error" hidden>Error happened, please retry later.</p>
+      <p id="close" hidden>You've quit {{room}}, Bye Bye {{username}}.</p>
+    </div>
+
+    <script src="../static/script.js"></script>
+  </body>
+</html>
